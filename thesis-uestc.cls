@@ -192,6 +192,7 @@
 % \addtocontents{lot}{\protect\noaddvspace}
 
 \pretocmd{\listoffigures}{
+  \clearpage{\thispagestyle{empty}\cleardoublepage{\addtocounter{pseudopage}{-1}}}
     \newpage
   \fancyhf{}
   \fancyhead[C]{\fontsize{10.5pt}{12.6pt}\selectfont 图目录}
@@ -206,6 +207,7 @@
 }
 
 \pretocmd{\listoftables}{
+  \clearpage{\thispagestyle{empty}\cleardoublepage{\addtocounter{pseudopage}{-1}}}
     \newpage
   \fancyhf{}
   \fancyhead[C]{\fontsize{10.5pt}{12.6pt}\selectfont 表目录}
@@ -656,13 +658,8 @@ UDC\textsuperscript{ 注1} \uline{\hspace{2.5in}} \\[12bp]
 }
 
 \newcommand{\thesischapterexordium}{
-  \checkoddpage
-  \ifoddpage
-      \blankpage
-    \else
-      \newpage
-  \fi
-    \newpage
+  \clearpage{\thispagestyle{empty}\cleardoublepage{\addtocounter{pseudopage}{-1}}}
+  \newpage
   \addtocontents{toc}{\protect\setcounter{tocdepth}{4}}
   \standardhead
   \pagenumbering{arabic}
