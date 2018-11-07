@@ -776,14 +776,14 @@ UDC\textsuperscript{ 注1} \uline{\hspace{2.5in}} \\[12bp]
 \newtheoremstyle{dotless}{0pt}{0pt}{\normalfont}{24pt}{\heiti}{}{ }{}
 \theoremstyle{dotless}
 \newtheorem{theorem}{定理}[chapter]
-\newtheorem{axiom}[theorem]{公理}
-\newtheorem{corollary}[theorem]{推论}
-\newtheorem{lemma}[theorem]{引理}
-\newtheorem{definition}[theorem]{定义}
-\newtheorem{property}[theorem]{性质}
-\newtheorem{proposition}[theorem]{命题}
-\newtheorem{remark}[theorem]{结论}
-\newtheorem{example}[theorem]{例子}
+\newtheorem{axiom}{公理}[chapter]
+\newtheorem{corollary}{推论}[chapter]
+\newtheorem{lemma}{引理}[chapter]
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{property}{性质}[chapter]
+\newtheorem{proposition}{命题}[chapter]
+\newtheorem{remark}{结论}[chapter]
+\newtheorem{example}{例子}[chapter]
 
 
 \renewcommand{\thetheorem}{\arabic{chapter}.\arabic{theorem}}
@@ -792,6 +792,9 @@ UDC\textsuperscript{ 注1} \uline{\hspace{2.5in}} \\[12bp]
 \renewcommand{\thelemma}{\arabic{chapter}.\arabic{lemma}}
 \renewcommand{\thedefinition}{\arabic{chapter}.\arabic{definition}}
 \renewcommand{\theexample}{\arabic{chapter}.\arabic{example}}
+\renewcommand{\theproperty}{\arabic{chapter}.\arabic{property}}
+\renewcommand{\theproposition}{\arabic{chapter}.\arabic{proposition}}
+\renewcommand{\theremark}{\arabic{chapter}.\arabic{remark}}
 \renewcommand{\qedsymbol}{$\blacksquare$}
 \renewcommand{\proofname}{证明}
 
