@@ -102,7 +102,7 @@
 
 \newglossarystyle{long-uestc}{
   \renewenvironment{theglossary}%
-    {\begin{longtable}{lp{.7\textwidth}}}%
+    {\begin{longtable}{lp{.55\textwidth}}}%
     {\end{longtable}}%
 
   \renewcommand*{\glossaryheader}{}%
@@ -129,15 +129,19 @@
 }
 
 \newcommand{\thesisglossarylist}{
+  \clearpage{\thispagestyle{empty}\cleardoublepage{\addtocounter{pseudopage}{-1}}}
   \newpage
   \fancyhf{}
-  \fancyhead[C]{\fontsize{10.5pt}{12.6pt}\selectfont 缩略词表}
+  \fancyhead[C]{\fontsize{10.5pt}{12.6pt}\selectfont 主要符号表}
   \fancyfoot[CE,CO]{\fontsize{9pt}{10.8pt}\selectfont\Roman{pseudopage}}
-  \setlength\glsdescwidth{.7\textwidth}
-  \pdfbookmark{缩略词表}{glossary}
-  \printglossary[style=long-uestc, title={\protect\centering 缩略词表}, nonumberlist, nogroupskip]
+  %\setlength\glsdescwidth{0.2\textwidth}
+  \setlength{\glsdescwidth}{3in}
+  \pdfbookmark{主要符号表}{glossary}
+  %\printglossary[style=long-uestc, title={\protect\centering 主要符号表}, nonumberlist, nogroupskip]
+  \printnoidxglossary[sort=def, style=long-uestc, title={\protect\centering 主要符号表}, nonumberlist, nogroupskip]
 }
-\makeglossaries
+%\makeglossaries
+\makenoidxglossaries
 
 \RequirePackage{standalone}
 \RequirePackage{indentfirst}
