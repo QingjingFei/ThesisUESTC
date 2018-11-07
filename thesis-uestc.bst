@@ -105,7 +105,7 @@ FUNCTION {bbl.etal}
 
 FUNCTION {bib.begin}
 {
-    "\begin{thebibliography}{lo}"
+    "\begin{thebibliography}{loo}"
     write$ newline$
     "\interlinepenalty=10000"
     write$ newline$
@@ -373,8 +373,14 @@ FUNCTION {conference}
     {
         format.address write$ add.comma
     } if$
-    format.year write$ add.comma
-    format.pages write$
+    format.year write$ 
+    pages missing$
+    'skip$
+    {
+        add.comma
+        format.pages write$
+    } if$
+    
     note missing$
     'skip$
     {
@@ -401,17 +407,30 @@ FUNCTION {article}
     format.authors write$ add.period
     format.title "[J]" * write$ add.period
     format.journal write$ add.comma
-    format.year write$ add.comma
+    format.year write$
     
-    number missing$
+    volume missing$
     {
-        volume ": " * write$
-    } {
-        volume "(" *
-        number *
-        "): " * write$
+        pages missing$
+        'skip$
+        {
+            add.comma
+            format.pages write$
+        } if$
+    }
+    {
+        add.comma
+        number missing$
+        {
+            volume ": " * write$
+        } {
+            volume "(" *
+            number *
+            "): " * write$
+        } if$
+        format.pages write$
     } if$
-    format.pages write$
+    
     note missing$
     'skip$
     {
@@ -490,7 +509,7 @@ FUNCTION {techreport}
         format.address write$ ": " write$
     } if$
     format.institution write$ add.comma
-    format.date write$
+    format.year write$
     note missing$
     'skip$
     {
@@ -545,8 +564,15 @@ FUNCTION {digital}
     format.authors write$ add.period
     format.title write$
     "[" format.type * "]" * write$ add.period
-    format.url write$ add.comma
-    format.date write$
+    format.url write$ 
+
+    date missing$
+    'skip$
+    {
+        add.comma
+        format.date write$
+    }
+    
     note missing$
     'skip$
     {
